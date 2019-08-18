@@ -8,6 +8,16 @@ class App extends Component {
     series:[]
   }
 
+//imediatemente chamado após o componente ser renderizado
+componentDidMount(){
+  const series = ["Vikings", "Game od Trhones"];
+  setTimeout(() =>{
+    //this.setState({series: series});
+    //se os nomes dos states forem iguais, basta colocar
+    this.setState({series})
+  }, 2000);
+}
+
 render(){
     return (
       <div className="App">
