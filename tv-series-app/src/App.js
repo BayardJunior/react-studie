@@ -1,18 +1,14 @@
 import React from "react";
+import Intro from "./components/Intro"
 import "./App.css";
 
-const Intro = (props) => (
-  <p className="App-intro">
-    Meu primeiro componente funcional
-  </p>
-)
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h1 className="App-title">Tv Series List</h1>
       </header>
-      <Intro/>
+      <Intro message= "Here you can find all of your most favorit series"/>
     </div>
   );
 }
