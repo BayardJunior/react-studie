@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Intro from "../Intro"
 import "./App.css";
+import 'whatwg-fetch'
 
 class App extends Component {
 
@@ -10,12 +11,10 @@ class App extends Component {
 
 //imediatemente chamado após o componente ser renderizado
 componentDidMount(){
-  const series = ["Vikings", "Game od Trhones"];
-  setTimeout(() =>{
-    //this.setState({series: series});
-    //se os nomes dos states forem iguais, basta colocar
-    this.setState({series})
-  }, 2000);
+  fetch('http://api.tvmaze.com/search/shows?q=Vikings')
+  .then((response) => response.json())
+  //.then((response)=> console.log(response))
+  .then(json => this.setState({series: json}))
 }
 
 render(){
