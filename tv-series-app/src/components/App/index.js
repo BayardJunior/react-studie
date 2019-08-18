@@ -1,21 +1,10 @@
 import React, {Component} from "react";
 import Intro from "../Intro"
+import Series from "../../containers/Series"
 import "./App.css";
 import 'whatwg-fetch'
 
 class App extends Component {
-
-  state = {
-    series:[]
-  }
-
-//imediatemente chamado após o componente ser renderizado
-componentDidMount(){
-  fetch('http://api.tvmaze.com/search/shows?q=Vikings')
-  .then((response) => response.json())
-  //.then((response)=> console.log(response))
-  .then(json => this.setState({series: json}))
-}
 
 render(){
     return (
@@ -24,7 +13,7 @@ render(){
           <h1 className="App-title">Tv Series List</h1>
         </header>
         <Intro message= "Here you can find all of your most favorit series"/>
-        the lengh of series array - {this.state.series.length}
+        <Series/>
       </div>
     );
   }
