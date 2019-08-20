@@ -1,10 +1,12 @@
 import React, {Component} from "react";
+import SeriesList from '../../components/SeriesList';
 
 class Series extends Component{
 
   state = {
       series:[]
   }
+
   //imediatemente chamado após o componente ser renderizado
   componentDidMount(){
     fetch('http://api.tvmaze.com/search/shows?q=Vikings')
@@ -16,7 +18,7 @@ class Series extends Component{
   render(){
     return(
       <div>
-        The lengh of series array - {this.state.series.length}
+        <SeriesList list = {this.state.series}/>
       </div>
     )
   }
